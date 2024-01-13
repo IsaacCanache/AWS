@@ -1,0 +1,23 @@
+Creating Peering
+
+1.- Creating Peering in VPC
+	.- Configured VPC LOCAL /VPC ORIGEN
+2..-Configuration security subred
+	.- En cada una de las subredes  de las VPC en TABLAS DE RUTAS 
+	.- INBOND (PORT/ALL - Traffic / ALL - Custom/(CIDR VPC ORIGEN))
+	
+3.- Configuracion Security Group
+	.- INBOND (PORT/CIDR-VP4 - Traffic/ALL - CUSTOM/(CIDR VPC ORIGEN))
+
+4.- Validar haciendo ping a algunas de las instancias dentro de una subred 
+en una de las VPC de origen
+
+
+
+VPC LOCAL:
+Marketing: 10.10.0.0/16 
+Developer: 192.168.0.0/20 - (192.168.0.80)
+
+
+VPC ORIGEN:
+Finance: 172.31.0.0/16  - (172.31.0.26)

@@ -1,0 +1,53 @@
+Cloud SAM / CLOUD FORMATION/ CLI / Amazon API Gateway / AWS Lambda/ IAM : 
+
+Requisitos: 
+
+1.- Creacion de un usuario
+2.- Instalacion de CLI
+3.- Configuracion de CLI
+
+Install AWS SAM in CLI
+
+#Download/install pakage sam.zip
+wget https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
+unzip aws-sam-cli-linux-x86_64.zip -d sam-installation
+sudo ./sam-installation/install
+
+si es en ubuntu:
+sudo apt-get install awscli
+aws configure
+
+#Check Installling
+sam --version
+
+/////////////////
+
+
+1- Crear PROYECTO de aplicacion Hello World
+
+#En la linea de comando despliegue los siguientes comandos/instrucciones
+
+sam init
+
+Eliga como 1:
+	.- Which template source would you like to use?
+	.- Choose an AWS Quick Start application template
+Eliga como y:
+	.- Use the most popular runtime and package type? (Python and zip)
+Eliga como n:
+	.- Would you like to enable X-Ray tracing on the function(s) in your application?
+	.- Would you like to enable monitoring using CloudWatch Application Insights?
+Eliga el nombre del proyecto:
+	.- sam-app
+	
+#Check structure
+
+cd sam-app
+tree
+nota: para instalar el comando tree: sudo apt  install tree
+
+2.- Craer aplicacion
+
+#Ejecute en la capeta de tu proyecto "sam.app"
+sam build
+

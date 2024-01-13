@@ -1,0 +1,14 @@
+Create Hosting S3 Bucket
+
+Objetivo: waves.html
+
+1.- Create Bucket
+	.- Defined ACL ( Enable )
+	.- Block Access Public (Disable)
+2.- Upload files
+3.- Adjunt Policy of Access in (Permissions/BucketPolicy)
+4.- Add ARN in Policy.JSON
+5.- Defined routing (Bucket/Properties/StaticWebSiteHosting)
+	.-Defined public staticwebsite
+	.-Defined (index.html/error.html)
+6.- Check exposed with URL

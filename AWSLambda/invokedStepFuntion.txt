@@ -1,0 +1,49 @@
+CREAR UNA FUNCION LAMBDA QUE INVOQUE A UN STATEMENT:
+
+1.- Crear funcion lambda con la siguiente estructura: 
+
+Sin parametros de entrada o de salida: 
+Crear una funcion que invoque a un step funtions:
+
+import boto3
+import json
+import datetime
+
+def datetime_a_cadena(o):
+    if isinstance(o, datetime.datetime):
+        return o.__str__()
+
+def lambda_handler(event, context):
+    client = boto3.client('stepfunctions')
+    response = client.start_execution(
+        stateMachineArn='arn:aws:states:us-east-1:258829008119:stateMachine:MyMachineHelloWorl'
+    )
+    return json.dumps(response, default=datetime_a_cadena)
+
+2.- Con parametros de entrada y de salida:
+
+import boto3
+import json
+import datetime
+
+def datetime_a_cadena(o): 
+    if isinstance(o, datetime.datetime):
+        return o.__str__()
+
+def lambda_handler(event, context):
+    client = boto3.client('stepfunctions') #indica que va a conectarse a un objeto de tipo step funtions
+    numero = event.get('inputCaseID', '001')  # obtiene el número del evento, por defecto es '001'
+    response = client.start_execution(	#funcion para inicializar y ejecutar el step funtions
+        stateMachineArn='arn:aws:states:us-east-1:258829008119:stateMachine:CallCenterStateMachine', #indica el recurso a invocar especificamente cual step funtion
+        input=json.dumps({'inputCaseID': numero})  # pasa el número como entrada al Step Function, al parecer eso pasa una
+													 especie de matrix que indica el contenio y el tipo de contenido, en forma clave valor
+													
+    )
+    return json.dumps(response, default=datetime_a_cadena)
+
+
+El evento en el segundo caso esta configurado para que defina un parametro JSON de con el nombre 
+inputCaseID, el cual lo recibe una variable python y es renderizado hacia la salida
+
+El bloque de datatime sirve para procesar los datos de tipo de fecha o horario que de forma explicita
+lambda pasa como ouput relacionado a la salida de la ejecucion del entorno

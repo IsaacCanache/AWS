@@ -1,0 +1,7 @@
+Create EC2 with commans inicialitazion in two AZ:
+
+1.- Create EC2 (webserver01)
+	.- Add commads (Details/UserData)
+2.- CHeck IP public
+3.- (opcional) for edit UserData (Instance/ConfigureInstance/EditUserData)
+Note: Stoped instance for edit UserData

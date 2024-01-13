@@ -1,0 +1,45 @@
+1.- EFS CREATE 
+
+2- EC2 IP PUBLIC: 18.117.192.170
+
+3.- CREATE KEY PAIR
+
+4.- GIT BASH
+ - connet ec2
+ ssh -i 'C:\Users\cienc\Downloads\EFS_Document\MyKeyPair.pem' ec2-user@18.117.192.170
+5.- Mount EFS
+-Install
+sudo yum install -y amazon-efs-utils
+-create folder
+mkdir efs
+-Mount EFS
+sudo mount -t efs -o tls fs-0e12aeffcd3e95d99:/ efs
+//encriptación habilitada/ID EFS/Folder Mount
+-Check creation
+df -h 
+-Mount test
+sudo dd if=/dev/zero of=~/efs/1GiB bs=1M count=1024 status=progress
+dd=duplicar objetos/ dirección loca/dirección origen 
+
+
+----------------------
+
+
+1.- Create security Group
+	.- (INBOUND) Protocolo(NFS)/Sourse(Security Group Instances)
+2.- Create EFS
+	.-Configure Backup
+	.-Configure redes
+	.-Configure el security group creado anteriormente
+3.- Mount EFS in instances	(attack)
+-Install
+sudo yum install -y amazon-efs-utils
+-create folder
+mkdir efs
+-Mount EFS
+sudo mount -t efs -o tls fs-0cbfcea81b163c306:/ data
+-Check creation
+df -h 
+-Mount test
+sudo bash -c "cat >> efs-1-setup.log"
+cat efs-1-setup.log

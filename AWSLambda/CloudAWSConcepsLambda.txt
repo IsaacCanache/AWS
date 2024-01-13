@@ -1,0 +1,45 @@
+
+
+1.- Modelo de invocación
+Al momento de seleccionar un servicio valide que tipo de invocaciónutiliza
+
+	-Asincrona //	Envia, no espera respuesta, admite colas, usado en pro de notificar o solo detonar, admite reintentos
+	-Sincrono	//Espera una respuesta, no admite reintentos dependen del servicio
+	-Invocación de sondeo // Admitido solo para SERIVCIOS DE COLAS Y STREAM sondeando los eventos coincidentes, para detonar funciones, los reintentos dependen del origen del serivio
+
+2.- Ciclo de Lambda
+	-Lambda puede aprovisionar un entorno en caliente o en frio
+	-Utilice Simultaniedad para iniciar en caliente un grupo de recusos para sus funciones, bajando la latencia del tiempo de iniciación
+	-Existen otros factores que solo el apagado de una función 
+	-Utilice la cache transcurrida (va de proceso cercano a otro) en /tmp
+	
+3.- Securidad IAM
+	.- Defina un rol para dar acceso a un serivicio
+	.- Defina una politica asociada a un rol para especificar que acciones estan permitidas
+	.- IAM Analitycs se utiliza para validar cuales son los recursos necesarios en funcion de los recursos
+	
+4.- Codigo Estructura
+	.- Constante, en todos los metodos siempre va a estar el handler que recibe un evento, "event"
+	.- Constante, en todos lo metodos siempre va a estar el CONTEXTO que especifica detalles del entorno creado para enlazarlo con su codigo
+	.- Maneje buenas practicas como las siguientes:
+		.- Separar logica del negocio con la recepción del evento
+		.- Crear funciones pequeñas
+		.- Utilizar fuentes externas para almacenar información
+		.- No hacer grandes paquetes de dependencias porque duran mas en cargar
+		.- Incluya funciones de registros para validar las etapas de su funtionç
+		.- Usar codificacion de retorno
+		.- Retilice el contexto en ejecución para reutilizar recursos
+		.- Utilice sus variables KEY/VALUE
+		.- Almacene datos secretos en AMK
+
+5.- Velocidad/Potencia/Tiempo
+	.- Validar si la potencia utilizada reduce costos al procesar en menor tiempo
+	.- Distribuir en otras funciones una carga mayor
+	.- Reducir tiempo de inicialización
+	.- Utilizar simultaneedad 
+		.- Reservada
+		.- Entornos en espera
+		.- Simultaneedad en caliente
+	
+6.- 
+	

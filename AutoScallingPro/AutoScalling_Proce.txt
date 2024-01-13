@@ -1,0 +1,8 @@
+Pocedimiento AutoScalling
+
+1.- Create EC2
+2.- Create IMAGE EC2 
+3.- Check IMAGE IN "IVALABLE"
+4.- Create Lauch templates whith image
+5.- Create AutoScalling Groups
+6.- Defined schuled in autoscalling (opcional)

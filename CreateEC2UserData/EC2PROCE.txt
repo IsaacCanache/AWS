@@ -1,0 +1,15 @@
+Change Type Instance:
+1.-Stop Instance
+2.-Change Type in Configure Instance
+3.- Start Instance
+
+Add Internet Gateway to Instance:
+Objetive: Open port  3306 in security Group 
+
+1.- Create Internet Gateway
+2.- Configure Route tables (Instance/Subnet/RouteTables)
+	.- Adjuntar Internet Gateway y conceder permiso de puertos
+3.- Configure el security group adjunto a la instancia
+	.- Cree una regla All Traffic HTTP
+	.- Cree una regla para conecciones locales si necesita conecciones locales
+4.- Check IP public

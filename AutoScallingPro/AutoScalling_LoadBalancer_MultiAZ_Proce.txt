@@ -1,0 +1,19 @@
+
+
+
+1.- Create AutoScalling 
+2.- Asociated to LoadBalancer 
+3.- Availability Zones and Subnets associated to your VPC
+4.- Create Security Group "Permiss All Connect LoadBalancer"
+5.- Assigned gruops of LoadBalancer to the security group EC2 "Edit Security Group Inbount"
+6.- Associed Gruop  Security LoadBalancer to your LoadBalancer in "Security"
+7.- Check Connect Extert of Intances a traves del LoadBalancer, copy DNS and paste in browers
+DNS: TravelAgencyWebServers-1-513006820.us-east-1.elb.amazonaws.com
+8.- Check status of instance: http://travelagencywebservers-1-513006820.us-east-1.elb.amazonaws.com/health
+9.- In Targe Group (LoadBalancer)/ edit health for test number refernt 
+10.- Cambiar SubRed a las privado (opcional), en targe Grup LoadBalancer
+nota: Cambiar de subred no hace que las instancias existentes en la subred antigua
+cambien automaticamente, usted tiene que destruirlas por debajo del minimo especificado
+en la configuración del Scalling, para que las nuevas se reconstruyan en la subred 
+nueva (la especificada)
+11.- Check History in AutoScalling Group

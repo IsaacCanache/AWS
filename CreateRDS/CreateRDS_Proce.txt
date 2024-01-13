@@ -1,0 +1,16 @@
+Create Instance RDS / Multi AZ / Configure Backups
+
+1.- Create RDS
+	.- Select DB
+	.- Select Version
+	.- Select Templates
+	.- Configure Credentials (namedb/Password/NameUser)
+	.- Select class InstanceDB
+	.- Configure Backups
+	.- Configure multi AZ
+	.- Configure AutoScalling
+	.- Configure Monitoring
+	.- Configure Security
+nota: Se tarde al menos 15 minutos en crearse
+
+2.- Create Replica (InstanceRDS/Configure/CreateReplic)
